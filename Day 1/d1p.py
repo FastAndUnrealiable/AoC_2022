@@ -2,7 +2,7 @@
 Calculates and prints max caloric values amongst the elfs and the top three values.
 """
 
-with open(r"E:\AoC_2022\Day 1\input.txt", "r", encoding="utf-8") as CAL_VALUES:
+with open("E:\\AoC_2022\\Day 1\\input.txt", "r", encoding="utf-8") as CAL_VALUES:
     calories = []
     TMP_CAL_SUM = 0
 
