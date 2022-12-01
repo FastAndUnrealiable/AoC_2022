@@ -9,30 +9,30 @@ int main() {
 
     std::ifstream Calories("input.txt");
     std::string input;
-    std::vector<int> CAL_VALUE_VECTOR;
+    std::vector<int> cal_value_vector;
 
-    int TMP_CAL_SUM = 0;
+    int tmp_cal_sum = 0;
 
     while (getline (Calories, input))
     {
        
         if (input.empty())
         {
-            CAL_VALUE_VECTOR.push_back(TMP_CAL_SUM);
-            TMP_CAL_SUM = 0;
+            cal_value_vector.push_back(tmp_cal_sum);
+            tmp_cal_sum = 0;
         }
         else
         {
-            TMP_CAL_SUM = TMP_CAL_SUM + stoi(input);
+            tmp_cal_sum = tmp_cal_sum + stoi(input);
         }
     }
 
     Calories.close();
 
-    std::sort(std::begin(CAL_VALUE_VECTOR), std::end(CAL_VALUE_VECTOR));
+    std::sort(std::begin(cal_value_vector), std::end(cal_value_vector));
 
     for (int i = 1; i < 4; i++){
-        std::cout << CAL_VALUE_VECTOR[CAL_VALUE_VECTOR.size()-i] << std::endl;
+        std::cout << cal_value_vector[cal_value_vector.size()-i] << std::endl;
     }
 
     return 0;
