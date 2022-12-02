@@ -38,18 +38,18 @@ def score_calc_second_challenge(opponent, chad):
         INT: Score of the round.
     """
 
-    BIG_DIC = {"WIN": {"A": 2 , "B":3, "C":1},
+    big_dic = {"WIN": {"A": 2 , "B":3, "C":1},
             "LOOSE" : {"A": 3, "B": 1, "C":2},
             "DRAW" : {"A": 1, "B":2, "C": 3}}
 
     if chad == "1": ## Loose Condition.
-        return BIG_DIC["LOOSE"][opponent]
+        return big_dic["LOOSE"][opponent]
 
     elif chad == "2": ## Draw Condition.
-        return BIG_DIC["DRAW"][opponent]+3
+        return big_dic["DRAW"][opponent]+3
 
     elif chad == "3": ## Win Condition.
-        return BIG_DIC["WIN"][opponent]+6
+        return big_dic["WIN"][opponent]+6
 
 with open(r"F:\AoC_2022\Day 2\input.txt", "r", encoding="utf-8") as SCORE_BOOK:
     SCORE_1 = 0
