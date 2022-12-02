@@ -4,8 +4,12 @@ Calculates the total SCORE_1 of the rock-paper-scissor tournament.
 
 HAND = {"X": "1", "Y": "2", "Z":"3"}
 
-def SCORE_calc_first_challenge(opponent, chad):
+def score_calc_first_challenge(opponent, chad):
     """Returns points depending on win/loose condition.
+
+    Args:
+        opponent STR: Opponents hand.
+        chad STR: Players hand.
 
     Returns:
         int: points
@@ -24,6 +28,15 @@ def SCORE_calc_first_challenge(opponent, chad):
 
 
 def score_calc_second_challenge(opponent, chad):
+    """Function for second part of Day 2 challenge.
+
+    Args:
+        opponent STR: Opponents hand.
+        chad STR: Players hand.
+
+    Returns:
+        INT: Score of the round.
+    """
 
     BIG_DIC = {"WIN": {"A": 2 , "B":3, "C":1},
             "LOOSE" : {"A": 3, "B": 1, "C":2},
@@ -42,7 +55,7 @@ with open(r"F:\AoC_2022\Day 2\input.txt", "r", encoding="utf-8") as SCORE_BOOK:
     SCORE_1 = 0
 
     for line in SCORE_BOOK.readlines():
-        SCORE_1 += SCORE_calc_first_challenge(line[0], HAND[line[2]])
+        SCORE_1 += score_calc_first_challenge(line[0], HAND[line[2]])
 
     print(f"Score for the first challenge is {SCORE_1}!\n")
 
