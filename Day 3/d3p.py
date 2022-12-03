@@ -1,4 +1,5 @@
-"""LMAO this shit is messy
+"""
+LMAO this shit is messy
 """
 from pymongo import MongoClient
 import linecache
@@ -7,7 +8,7 @@ CLIENT = MongoClient("mongodb://localhost:27017")
 DB = CLIENT["AoC"]
 COLLECTION = DB["Elf Groups"]
 
-COLLECTION.delete_many({})
+COLLECTION.delete_many({}) ## Empty Collection so it doesn't just add upp all the prior runs.
 
 
 def backpack_first_challenge(item):
@@ -48,7 +49,7 @@ def backpack_second_challenge(ELFS, GROUP):
 
     return card
 
-with open("F:\AoC_2022\Day 3\input.txt", "r", encoding="utf-8") as items:
+with open("F:\AoC_2022\Day 3\input.txt", "r", encoding="utf-8") as items: ## Part of first challenge.
 
     priority_list_lower_1 = []
     priority_list_upper_1 = []
@@ -61,7 +62,7 @@ with open("F:\AoC_2022\Day 3\input.txt", "r", encoding="utf-8") as items:
             priority_list_upper_1.append(ord(LETTER)-38)
     print(f"Value for first part is {sum(priority_list_upper_1)+sum(priority_list_lower_1)}")
 
-with open("F:\AoC_2022\Day 3\input.txt", "r", encoding="utf-8") as items:
+with open("F:\AoC_2022\Day 3\input.txt", "r", encoding="utf-8") as items: ## Part of second challenge.
 
     priority_list_lower_2 = []
     priority_list_upper_2 = []
@@ -70,12 +71,12 @@ with open("F:\AoC_2022\Day 3\input.txt", "r", encoding="utf-8") as items:
     ELFS = []
     for num, item in enumerate(items):
         if num % 3 == 2:
-            [ELFS.append(linecache.getline("input.txt", (num-1)+x).strip("\n")) for x in range(3)]
+            [ELFS.append(linecache.getline("input.txt", (num-1)+x).strip("\n")) for x in range(3)] ## Magic 
             GROUP += 1
             COLLECTION.insert_one(backpack_second_challenge(ELFS, GROUP))
             ELFS = []
 
-DATABASE = COLLECTION.find({})
+DATABASE = COLLECTION.find({}) ## Loads in all the documents.
 
 for DOCUMENT in DATABASE:
     INTERSECT_ONE = "".join(set(DOCUMENT["First Elf"]).intersection(DOCUMENT["Second Elf"]))
